@@ -5,8 +5,9 @@ import java.util.List;
 
 import com.gft.dto.cachorro.CachorroMapper;
 import com.gft.dto.cachorro.ConsultaCachorro;
-import com.gft.entities.Atendimento;
 import com.gft.entities.Cliente;
+import com.gft.entities.Role;
+import com.gft.entities.Usuario;
 
 public class ClienteMapper {
 	
@@ -21,19 +22,25 @@ public class ClienteMapper {
 	public static ConsultaCliente fromEntity(Cliente cliente) {
 		
 		List<ConsultaCachorro> cachorros = CachorroMapper.fromEntityList(cliente.getPets());
-		List<Atendimento> atendimentos = cliente.getAtendimentos();
 		
 		
 		if(cachorros==null) {
 			cachorros=Collections.emptyList();
 		}
-		if(atendimentos==null) {
-			atendimentos=Collections.emptyList();
-		}
 		
 		
 		return new ConsultaCliente(cliente.getId(), cliente.getNome(),cliente.getCpf(), cliente.getEmail(),cliente.getTelefone(),
-				cliente.getRegistroCliente() ,cachorros,atendimentos); 
+				cliente.getRegistroCliente() ,cachorros); 
 	}
+	
+//	
+//public static Usuario returnUsuario(RegistroUsuarioDTO dto) {
+//		
+//		Role role = new Role();
+//		role.setId(dto.getPerfilId());
+//		
+//		return new Usuario(null, dto.getEmail(), new BCryptPasswordEncoder().encode(dto.getSenha()), role, filial);
+//		
+//	}
 	
 }

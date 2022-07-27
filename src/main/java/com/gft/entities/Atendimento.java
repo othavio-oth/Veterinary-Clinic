@@ -1,6 +1,6 @@
 package com.gft.entities;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -10,8 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name = "atendimento")
@@ -38,21 +36,14 @@ public class Atendimento {
 	private DadosDoAnimalNoDia dados;
 	private String comentarios;
 	
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm")
-	private Date dataEHora;
+	private LocalDateTime dataEHora;
 	
 	
-	
-	
-	
-	public Atendimento() {
+	public Atendimento(){
 	}
 
-
-
-	
 	public Atendimento(Long id, Cliente tutorId, Cachorro cachorroId, Veterinario veterinarioId, DadosDoAnimalNoDia dados,
-			String comentarios, Date dataEHora) {
+			String comentarios, LocalDateTime dataEHora) {
 		this.id = id;
 		this.tutorId = tutorId;
 		this.cachorroId = cachorroId;
@@ -63,35 +54,23 @@ public class Atendimento {
 	}
 
 
-
-
 	public Long getId() {
 		return id;
 	}
-
-
 
 
 	public void setId(Long id) {
 		this.id = id;
 	}
 
-
-
-
 	public Cliente getTutorId() {
 		return tutorId;
 	}
 
 
-
-
 	public void setTutorId(Cliente tutorId) {
 		this.tutorId = tutorId;
 	}
-
-
-
 
 	public Cachorro getCachorroId() {
 		return cachorroId;
@@ -133,10 +112,10 @@ public class Atendimento {
 	public void setComentarios(String comentarios) {
 		this.comentarios = comentarios;
 	}
-	public Date getDataEHora() {
+	public LocalDateTime getDataEHora() {
 		return dataEHora;
 	}
-	public void setDataEHora(Date dataEHora) {
+	public void setDataEHora(LocalDateTime dataEHora) {
 		this.dataEHora = dataEHora;
 	}
 	

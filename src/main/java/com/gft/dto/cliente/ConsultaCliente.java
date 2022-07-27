@@ -3,7 +3,6 @@ package com.gft.dto.cliente;
 import java.util.List;
 
 import com.gft.dto.cachorro.ConsultaCachorro;
-import com.gft.entities.Atendimento;
 
 public class ConsultaCliente {
 	
@@ -14,7 +13,6 @@ public class ConsultaCliente {
 	private String telefone;
 	private String registroCliente;
 	private List<ConsultaCachorro> pets;
-	private List<Atendimento> atendimentos;
 	
 	
 	public ConsultaCliente() {
@@ -23,7 +21,7 @@ public class ConsultaCliente {
 
 	
 	public ConsultaCliente(Long id, String nome, String cpf, String email, String telefone, String registroCliente,
-			List<ConsultaCachorro> pets, List<Atendimento> atendimentos) {
+			List<ConsultaCachorro> pets) {
 		this.id = id;
 		this.nome = nome;
 		this.cpf = cpf;
@@ -31,7 +29,6 @@ public class ConsultaCliente {
 		this.telefone = telefone;
 		this.registroCliente = registroCliente;
 		this.pets = pets;
-		this.atendimentos = atendimentos;
 	}
 
 
@@ -109,16 +106,5 @@ public class ConsultaCliente {
 	}
 
 
-	public List<Atendimento> getAtendimentos() {
-		return atendimentos;
-	}
-
-
-	public void setAtendimentos(List<Atendimento> atendimentos) {
-		this.atendimentos = atendimentos;
-	}
-
 	
-	
-
 }

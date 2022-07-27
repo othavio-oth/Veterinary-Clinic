@@ -1,7 +1,5 @@
 package com.gft.dto.atendimento;
 
-import java.util.Date;
-
 import com.gft.dto.cachorro.ConsultaCachorro;
 import com.gft.dto.cachorro.ConsultaCachorroTutor;
 import com.gft.dto.veterinario.ConsultaVeterinario;
@@ -13,7 +11,7 @@ public class ConsultaAtendimento {
 	private ConsultaVeterinario veterinario;
 	private DadosDoAnimaDTO dados;
 	private String comentarios;
-	private Date dataEHora;
+	private String dataEHora;
 	
 	
 	
@@ -24,7 +22,7 @@ public class ConsultaAtendimento {
 	
 	
 	public ConsultaAtendimento(Long id, ConsultaCachorroTutor tutor, ConsultaCachorro cachorro,
-			ConsultaVeterinario veterinario, DadosDoAnimaDTO dados, String comentarios, Date dataEHora) {
+			ConsultaVeterinario veterinario, DadosDoAnimaDTO dados, String comentarios, String dataEHora) {
 		this.id = id;
 		this.tutor = tutor;
 		this.cachorro = cachorro;
@@ -71,10 +69,10 @@ public class ConsultaAtendimento {
 	public void setComentarios(String comentarios) {
 		this.comentarios = comentarios;
 	}
-	public Date getDataEHora() {
+	public String getDataEHora() {
 		return dataEHora;
 	}
-	public void setDataEHora(Date dataEHora) {
+	public void setDataEHora(String dataEHora) {
 		this.dataEHora = dataEHora;
 	}
 	

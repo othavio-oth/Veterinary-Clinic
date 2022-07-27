@@ -35,4 +35,10 @@ public class VeterinarioService {
 		veterinarioRepository.delete(veterinario);
 	}
 
+	public Veterinario atualizar(Veterinario atualizado, Long id) {
+		Veterinario desatualizado = this.buscarPorId(id);
+		atualizado.setId(desatualizado.getId());
+		return veterinarioRepository.save(atualizado);
+	}
+
 }

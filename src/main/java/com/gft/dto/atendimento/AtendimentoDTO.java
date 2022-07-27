@@ -1,6 +1,7 @@
 package com.gft.dto.atendimento;
 
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class AtendimentoDTO {
 
@@ -9,12 +10,12 @@ public class AtendimentoDTO {
 	private Long veterinarioId;
 	private DadosDoAnimaDTO dados;
 	private String comentarios;
-	private Date dataEHora;
+	private String dataEHora;
 	
 	
 	
 	public AtendimentoDTO( Long tutorId, Long cachorroId, Long veterinarioId, DadosDoAnimaDTO dados, String comentarios,
-			Date dataEHora) {
+			String dataEHora) {
 		this.tutorId = tutorId;
 		this.cachorroId = cachorroId;
 		this.veterinarioId = veterinarioId;
@@ -56,10 +57,13 @@ public class AtendimentoDTO {
 	public void setComentarios(String comentarios) {
 		this.comentarios = comentarios;
 	}
-	public Date getDataEHora() {
-		return dataEHora;
+	public LocalDateTime getDataEHora() {
+		String str = dataEHora;
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+		LocalDateTime dateTime = LocalDateTime.parse(str, formatter);
+		return dateTime;
 	}
-	public void setDataEHora(Date dataEHora) {
+	public void setDataEHora(String dataEHora) {
 		this.dataEHora = dataEHora;
 	}
 	

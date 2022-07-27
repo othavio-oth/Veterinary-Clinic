@@ -1,6 +1,9 @@
 package com.gft.services;
 
 import java.util.List;
+import java.util.Optional;
+
+import javax.persistence.EntityNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +24,11 @@ public class AtendimentoService {
 	
 	public List<Atendimento> mostrarTodosOsAtendimnentos(){
 		return atendimentoRepository.findAll();
+	}
+	
+	public Atendimento buscarPorId(Long id) {
+		Optional<Atendimento> atendimento = atendimentoRepository.findById(id);
+		return atendimento.orElseThrow(() ->  new EntityNotFoundException("Atendimento não encontrado"));
 	}
 	
 }

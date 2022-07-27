@@ -31,6 +31,11 @@ public class CachorroService {
 		return cachorro.orElseThrow(()-> new EntityNotFoundException("Cachorro não encontrado"));	
 	}
 	
+	public Cachorro  atualizarCachorro(Cachorro atualizado, Long id) {
+		Cachorro desatualizado = this.buscarPorId(id);
+		atualizado.setId(desatualizado.getId());
+		return cachorroRepository.save(atualizado);
+	}
 	public void deletarCachorro(Long id) {
 		Cachorro cachorro = this.buscarPorId(id);
 		cachorroRepository.delete(cachorro);

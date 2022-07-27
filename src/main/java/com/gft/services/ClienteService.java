@@ -30,6 +30,12 @@ public class ClienteService {
 		return cliente.orElseThrow(()-> new EntityNotFoundException("Cliente não enocntrado"));	
 	}
 	
+	public Cliente atualizar(Cliente atualizado, Long id) {
+		Cliente original = this.buscarPorId(id);
+		atualizado.setId(original.getId());
+		return clienteRepository.save(atualizado);
+	}
+	
 	public void deletarCliente(Long id) {
 		Cliente cliente = this.buscarPorId(id);
 		clienteRepository.delete(cliente);

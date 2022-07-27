@@ -1,8 +1,5 @@
 package com.gft.dto.cachorro;
 
-import java.util.List;
-
-import com.gft.entities.Atendimento;
 import com.gft.entities.Cachorro;
 
 public class ConsultaCachorro {
@@ -12,7 +9,6 @@ public class ConsultaCachorro {
 	private String raca;
 	private String carteirinha;
 	private ConsultaCachorroTutor tutor;
-	private List<Atendimento> atendimentos;
 	
 	
 	
@@ -21,14 +17,12 @@ public class ConsultaCachorro {
 		
 	}
 
-	public ConsultaCachorro(Long id, String nome, String raca, String carteirinha, ConsultaCachorroTutor tutor,
-			List<Atendimento> atendimentos) {
+	public ConsultaCachorro(Long id, String nome, String raca, String carteirinha, ConsultaCachorroTutor tutor) {
 		this.id = id;
 		this.nome = nome;
 		this.raca = raca;
 		this.carteirinha = carteirinha;
 		this.tutor = tutor;
-		this.atendimentos = atendimentos;
 	}
 	
 	
@@ -81,14 +75,5 @@ public class ConsultaCachorro {
 		this.tutor = tutor;
 	}
 
-	public List<Atendimento> getAtendimentos() {
-		return atendimentos;
-	}
-
-	public void setAtendimentos(List<Atendimento> atendimentos) {
-		this.atendimentos = atendimentos;
-	}
-
-
-
+	
 }
