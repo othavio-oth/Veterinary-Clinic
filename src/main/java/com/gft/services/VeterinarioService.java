@@ -1,9 +1,6 @@
 package com.gft.services;
 
-<<<<<<< HEAD
 import java.util.ArrayList;
-=======
->>>>>>> d37a829e21d06fcee20d22c143bb7772108837de
 import java.util.List;
 import java.util.Optional;
 
@@ -13,10 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.gft.entities.Veterinario;
-<<<<<<< HEAD
 import com.gft.exception.ApiException;
-=======
->>>>>>> d37a829e21d06fcee20d22c143bb7772108837de
 import com.gft.repositories.VeterinarioRepository;
 
 @Service
@@ -26,7 +20,7 @@ public class VeterinarioService {
 	private VeterinarioRepository veterinarioRepository;
 	
 	public Veterinario salvarVeterinario(Veterinario veterinario) {
-<<<<<<< HEAD
+
 		
 		
 		Optional<Veterinario> b = veterinarioRepository.findByEmail(veterinario.getEmail());
@@ -41,13 +35,12 @@ public class VeterinarioService {
 		if(d.isPresent()) {
 			throw new ApiException("Registro já está sendo usada por outro veterinário");
 		}
-=======
->>>>>>> d37a829e21d06fcee20d22c143bb7772108837de
+
 		return veterinarioRepository.save(veterinario);
 	}
 	
 	public List<Veterinario> listarVeterinarios(){
-<<<<<<< HEAD
+
 		List<Veterinario> todos =  veterinarioRepository.findAll();
 		List<Veterinario> ativos = new ArrayList<Veterinario>();;
 		
@@ -59,9 +52,8 @@ public class VeterinarioService {
 	}	
 		return ativos;
 	
-=======
-		return veterinarioRepository.findAll();
->>>>>>> d37a829e21d06fcee20d22c143bb7772108837de
+
+
 	}
 	
 	public Veterinario buscarPorId(Long id) {
@@ -78,6 +70,12 @@ public class VeterinarioService {
 		Veterinario desatualizado = this.buscarPorId(id);
 		atualizado.setId(desatualizado.getId());
 		return veterinarioRepository.save(atualizado);
+	}
+	
+	public void excluir(Long id) {
+		Veterinario veterinario = this.buscarPorId(id);
+		veterinario.setStatus(false);
+		veterinarioRepository.save(veterinario);
 	}
 
 }

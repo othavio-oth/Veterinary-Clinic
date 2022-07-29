@@ -1,9 +1,6 @@
 package com.gft.entities;
 
-<<<<<<< HEAD
 import java.util.ArrayList;
-=======
->>>>>>> d37a829e21d06fcee20d22c143bb7772108837de
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -42,7 +39,6 @@ public class Cliente {
 	@JsonIgnore
 	@OneToMany(mappedBy = "tutorId")
 	private List<Atendimento> atendimentos;
-<<<<<<< HEAD
 	private boolean status = true;
 
 	
@@ -56,22 +52,11 @@ public class Cliente {
 	}
 
 
-=======
-
-	
-
->>>>>>> d37a829e21d06fcee20d22c143bb7772108837de
 	public Cliente() {
 		
 	}
 
-<<<<<<< HEAD
-=======
-	
-	
-	
 
->>>>>>> d37a829e21d06fcee20d22c143bb7772108837de
 
 	public Cliente(Long id, String nome, String cpf, String email, String telefone, String registroCliente,
 			List<Cachorro> pets, List<Atendimento> atendimentos) {
@@ -85,14 +70,11 @@ public class Cliente {
 		this.atendimentos = atendimentos;
 	}
 
-<<<<<<< HEAD
-=======
 
 
 
 
 
->>>>>>> d37a829e21d06fcee20d22c143bb7772108837de
 	public Long getId() {
 		return id;
 	}
@@ -118,7 +100,6 @@ public class Cliente {
 	}
 
 	public List<Cachorro> getPets() {
-<<<<<<< HEAD
 		
 		List<Cachorro> ativos = new ArrayList<>();
 		for (Cachorro cachorro : pets) {
@@ -126,9 +107,7 @@ public class Cliente {
 		}
 		
 		return ativos;
-=======
-		return pets;
->>>>>>> d37a829e21d06fcee20d22c143bb7772108837de
+
 	}
 
 	public void setPets(List<Cachorro> pets) {
@@ -158,53 +137,30 @@ public class Cliente {
 	}
 
 
-<<<<<<< HEAD
-=======
 
-
->>>>>>> d37a829e21d06fcee20d22c143bb7772108837de
 	public String getTelefone() {
 		return telefone;
 	}
 
 
-<<<<<<< HEAD
-=======
 
-
->>>>>>> d37a829e21d06fcee20d22c143bb7772108837de
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
 
 
-<<<<<<< HEAD
-=======
 
 
 
-
->>>>>>> d37a829e21d06fcee20d22c143bb7772108837de
 	public String getRegistroCliente() {
 		return registroCliente;
 	}
 
 
-<<<<<<< HEAD
-=======
 
-
-
-
->>>>>>> d37a829e21d06fcee20d22c143bb7772108837de
 	public void setRegistroCliente(String registroCliente) {
 		this.registroCliente = registroCliente;
 	}
+
 	
-<<<<<<< HEAD
-=======
-	
-	
-	
->>>>>>> d37a829e21d06fcee20d22c143bb7772108837de
 }

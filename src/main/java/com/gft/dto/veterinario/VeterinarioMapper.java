@@ -9,18 +9,11 @@ import com.gft.entities.Veterinario;
 public class VeterinarioMapper {
 	
 	public static Veterinario fromDto(VeterinarioDTO dto) {
-<<<<<<< HEAD
 		return new Veterinario(null, dto.getNome(), dto.getRegistro(), dto.getEmail(), dto.getTelefone());
 	}
 	
+
 	
-	
-=======
-		return new Veterinario(null, dto.getNome(), dto.getRegistro(), dto.getEmail(), dto.getTelefone(), null);
-	}
-	
-	
->>>>>>> d37a829e21d06fcee20d22c143bb7772108837de
 	public static ConsultaVeterinario fromEntity(Veterinario veterinario) {
 		return new ConsultaVeterinario(veterinario.getId(), veterinario.getNome(), veterinario.getRegistro(), veterinario.getEmail(),
 				veterinario.getTelefone());

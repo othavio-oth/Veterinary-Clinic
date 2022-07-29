@@ -21,16 +21,10 @@ import com.gft.entities.Cachorro;
 import com.gft.services.CachorroService;
 import com.gft.services.ClienteService;
 
-<<<<<<< HEAD
-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+
 
 @RestController
 @RequestMapping("v1/pets")
-@SecurityRequirement(name ="clinica-vet")
-=======
-@RestController
-@RequestMapping("v1/pets")
->>>>>>> d37a829e21d06fcee20d22c143bb7772108837de
 public class CachorroController {
 	
 	
@@ -53,10 +47,8 @@ public class CachorroController {
 		return ResponseEntity.ok(CachorroMapper.fromEntity(cachorroService.buscarPorId(id)));
 	}
 	
-<<<<<<< HEAD
-	
-=======
->>>>>>> d37a829e21d06fcee20d22c143bb7772108837de
+
+
 	@GetMapping
 	public ResponseEntity<List<ConsultaCachorro>> listarCachorros(){
 		List<ConsultaCachorro> cachorros = CachorroMapper.fromEntityList(cachorroService.listarCachorros());

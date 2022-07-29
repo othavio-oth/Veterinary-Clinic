@@ -6,11 +6,6 @@ import java.util.List;
 import com.gft.dto.cachorro.CachorroMapper;
 import com.gft.dto.cachorro.ConsultaCachorro;
 import com.gft.entities.Cliente;
-<<<<<<< HEAD
-=======
-import com.gft.entities.Role;
-import com.gft.entities.Usuario;
->>>>>>> d37a829e21d06fcee20d22c143bb7772108837de
 
 public class ClienteMapper {
 	
@@ -35,15 +30,5 @@ public class ClienteMapper {
 		return new ConsultaCliente(cliente.getId(), cliente.getNome(),cliente.getCpf(), cliente.getEmail(),cliente.getTelefone(),
 				cliente.getRegistroCliente() ,cachorros); 
 	}
-	
-//	
-//public static Usuario returnUsuario(RegistroUsuarioDTO dto) {
-//		
-//		Role role = new Role();
-//		role.setId(dto.getPerfilId());
-//		
-//		return new Usuario(null, dto.getEmail(), new BCryptPasswordEncoder().encode(dto.getSenha()), role, filial);
-//		
-//	}
-	
+
 }
