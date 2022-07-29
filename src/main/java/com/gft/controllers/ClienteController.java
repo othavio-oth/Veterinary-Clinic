@@ -18,6 +18,7 @@ import com.gft.dto.cliente.ClienteDTO;
 import com.gft.dto.cliente.ClienteMapper;
 import com.gft.dto.cliente.ConsultaCliente;
 import com.gft.entities.Cliente;
+<<<<<<< HEAD
 import com.gft.entities.Perfil;
 import com.gft.services.ClienteService;
 
@@ -27,23 +28,50 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 @RequestMapping("v1/clientes")
 @SecurityRequirement(name ="clinica-vet")
 
+=======
+import com.gft.entities.Role;
+import com.gft.entities.Usuario;
+import com.gft.entities.usuarios.Perfil;
+import com.gft.services.ClienteService;
+import com.gft.services.UserService;
+
+@RestController
+@RequestMapping("v1/clientes")
+>>>>>>> d37a829e21d06fcee20d22c143bb7772108837de
 public class ClienteController {
 	
 	@Autowired
 	private ClienteService clienteService;
 	
+<<<<<<< HEAD
 //	@Autowired
 //	private AutenticacaoService autenticacaoService;
 
 	Perfil role = new Perfil("ROLE_CLIENTE");
 
+=======
+	@Autowired
+	private UserService userService;
+	
+	
+	Role role = new Role(Perfil.ROLE_CLIENTE);
+	
+	
+>>>>>>> d37a829e21d06fcee20d22c143bb7772108837de
 	@PostMapping
 
 	public ResponseEntity<ConsultaCliente> salvarCliente(@RequestBody ClienteDTO dto){
 		
+<<<<<<< HEAD
 //		Usuario usuario = new Usuario(dto.getEmail(),dto.getRegistroCliente());
 //		usuario.adicionarPerfil(role);
 //		autenticacaoService.criarUsuario(usuario);
+=======
+		Role role = new Role(Perfil.ROLE_CLIENTE);
+		//role.setId((long) 2);
+		Usuario usuario = new Usuario(null,dto.getEmail(),dto.getRegistroCliente(),role);
+		userService.salvarUsuario(usuario);
+>>>>>>> d37a829e21d06fcee20d22c143bb7772108837de
 		Cliente cliente = clienteService.salvarCliente(ClienteMapper.fromDTO(dto));
 		return ResponseEntity.ok(ClienteMapper.fromEntity(cliente));
 	}
@@ -76,6 +104,10 @@ public class ClienteController {
 		clienteService.deletarCliente(id);
 		return ResponseEntity.ok().build();
 	}
+<<<<<<< HEAD
 	
 	
+=======
+
+>>>>>>> d37a829e21d06fcee20d22c143bb7772108837de
 }

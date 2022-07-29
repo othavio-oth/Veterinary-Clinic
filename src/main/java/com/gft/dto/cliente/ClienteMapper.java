@@ -6,6 +6,11 @@ import java.util.List;
 import com.gft.dto.cachorro.CachorroMapper;
 import com.gft.dto.cachorro.ConsultaCachorro;
 import com.gft.entities.Cliente;
+<<<<<<< HEAD
+=======
+import com.gft.entities.Role;
+import com.gft.entities.Usuario;
+>>>>>>> d37a829e21d06fcee20d22c143bb7772108837de
 
 public class ClienteMapper {
 	

@@ -1,6 +1,9 @@
 package com.gft.services;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
+=======
+>>>>>>> d37a829e21d06fcee20d22c143bb7772108837de
 import java.util.List;
 import java.util.Optional;
 
@@ -10,12 +13,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.gft.entities.Cliente;
+<<<<<<< HEAD
 import com.gft.exception.ApiException;
+=======
+>>>>>>> d37a829e21d06fcee20d22c143bb7772108837de
 import com.gft.repositories.ClienteRepository;
 
 @Service
 public class ClienteService {
 	
+<<<<<<< HEAD
 	@Autowired	
 	private ClienteRepository clienteRepository;
 	
@@ -38,10 +45,17 @@ public class ClienteService {
 		}
 		
 		
+=======
+	@Autowired
+	private ClienteRepository clienteRepository;
+	
+	public Cliente salvarCliente(Cliente cliente) {
+>>>>>>> d37a829e21d06fcee20d22c143bb7772108837de
 		return clienteRepository.save(cliente);
 	}
 	
 	public List<Cliente> listarClientes(){
+<<<<<<< HEAD
 		
 		
 			List<Cliente> todos =  clienteRepository.findAll();
@@ -55,6 +69,9 @@ public class ClienteService {
 		}	
 			return ativos;
 		
+=======
+		return clienteRepository.findAll();
+>>>>>>> d37a829e21d06fcee20d22c143bb7772108837de
 	}
 	
 	public Cliente buscarPorId(Long id) {

@@ -18,7 +18,11 @@ public class Cachorro {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
+<<<<<<< HEAD
 	private boolean status = true;
+=======
+	
+>>>>>>> d37a829e21d06fcee20d22c143bb7772108837de
 	private String raca;
 	
 	@Column(unique = true)
@@ -89,6 +93,7 @@ public class Cachorro {
 		this.carteirinha = carteirinha;
 	}
 
+<<<<<<< HEAD
 
 	public boolean isStatus() {
 		return status;
@@ -99,6 +104,8 @@ public class Cachorro {
 		this.status = status;
 	}
 
+=======
+>>>>>>> d37a829e21d06fcee20d22c143bb7772108837de
 	
 	
 	

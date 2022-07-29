@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.gft.dto.veterinario.ConsultaVeterinario;
 import com.gft.dto.veterinario.VeterinarioDTO;
 import com.gft.dto.veterinario.VeterinarioMapper;
+<<<<<<< HEAD
 import com.gft.entities.Usuario;
 import com.gft.entities.Veterinario;
 import com.gft.services.AutenticacaoService;
@@ -28,11 +29,23 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 @RequestMapping("v1/veterinarios")
 @SecurityRequirement(name ="clinica-vet")
 
+=======
+import com.gft.entities.Role;
+import com.gft.entities.Usuario;
+import com.gft.entities.Veterinario;
+import com.gft.entities.usuarios.Perfil;
+import com.gft.services.UserService;
+import com.gft.services.VeterinarioService;
+
+@RestController
+@RequestMapping("v1/veterinarios")
+>>>>>>> d37a829e21d06fcee20d22c143bb7772108837de
 public class VeterinarioController {
 	
 	@Autowired
 	private VeterinarioService veterinarioService;
 	
+<<<<<<< HEAD
 	
 	@Autowired
 	private AutenticacaoService autenticacaoService;
@@ -43,6 +56,16 @@ public class VeterinarioController {
 			
 		Usuario usuario = new Usuario(dto.getEmail(),dto.getRegistro());
 		autenticacaoService.criarUsuario(usuario);
+=======
+	@Autowired
+	private UserService userService;
+	@PostMapping
+	public ResponseEntity<ConsultaVeterinario> salvarVeterinario(@RequestBody VeterinarioDTO dto){
+		Role role = new Role(Perfil.ROLE_VETERINARIO);
+		//role.setId((long) 1);
+		Usuario usuario = new Usuario(null,dto.getEmail(),dto.getRegistro(),role);
+		userService.salvarUsuario(usuario);
+>>>>>>> d37a829e21d06fcee20d22c143bb7772108837de
 		Veterinario veterinario = veterinarioService.salvarVeterinario(VeterinarioMapper.fromDto(dto));
 		return ResponseEntity.ok(VeterinarioMapper.fromEntity(veterinario));
 	}
@@ -70,6 +93,9 @@ public class VeterinarioController {
 		return ResponseEntity.ok().build();
 	}
 	
+<<<<<<< HEAD
 	
 	
+=======
+>>>>>>> d37a829e21d06fcee20d22c143bb7772108837de
 }

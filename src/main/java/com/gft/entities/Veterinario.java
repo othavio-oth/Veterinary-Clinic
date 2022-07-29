@@ -1,5 +1,10 @@
 package com.gft.entities;
 
+<<<<<<< HEAD
+=======
+import java.util.List;
+
+>>>>>>> d37a829e21d06fcee20d22c143bb7772108837de
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,6 +27,7 @@ public class Veterinario {
 	@Column(unique = true)
 	private String telefone;
 	
+<<<<<<< HEAD
 	private boolean status;
 
 	public boolean isStatus() {
@@ -35,6 +41,12 @@ public class Veterinario {
 
 
 	public Veterinario(Long id, String nome, String registro, String email, String telefone) {
+=======
+
+
+	public Veterinario(Long id, String nome, String registro, String email, String telefone,
+			List<Atendimento> atendimentos) {
+>>>>>>> d37a829e21d06fcee20d22c143bb7772108837de
 		this.id = id;
 		this.nome = nome;
 		this.registro = registro;

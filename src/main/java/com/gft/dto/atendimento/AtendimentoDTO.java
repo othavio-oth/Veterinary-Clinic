@@ -59,7 +59,11 @@ public class AtendimentoDTO {
 	}
 	public LocalDateTime getDataEHora() {
 		String str = dataEHora;
+<<<<<<< HEAD
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+=======
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+>>>>>>> d37a829e21d06fcee20d22c143bb7772108837de
 		LocalDateTime dateTime = LocalDateTime.parse(str, formatter);
 		return dateTime;
 	}

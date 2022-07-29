@@ -34,7 +34,10 @@ public class Atendimento {
 	
 	@Embedded
 	private DadosDoAnimalNoDia dados;
+<<<<<<< HEAD
 	
+=======
+>>>>>>> d37a829e21d06fcee20d22c143bb7772108837de
 	private String comentarios;
 	
 	private LocalDateTime dataEHora;
