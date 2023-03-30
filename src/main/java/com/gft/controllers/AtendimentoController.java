@@ -23,7 +23,6 @@ import com.gft.services.VeterinarioService;
 @RequestMapping("/atendimentos")
 public class AtendimentoController {
 
-	
 	@Autowired
 
 	private AtendimentoService atendimentoService;
@@ -35,22 +34,19 @@ public class AtendimentoController {
 	private CachorroService cachorroService;
 
 	@PostMapping
-	public ResponseEntity<ConsultaAtendimento> registrarAtendimento(@RequestBody AtendimentoDTO dto){
-		Atendimento atendimento = atendimentoService.registrar( new Atendimento(null, clienteService.buscarPorId(dto.getTutorId()),
-				cachorroService.buscarPorId(dto.getCachorroId()), veterinarioService.buscarPorId(dto.getVeterinarioId()),
-				AtendimentoMapper.fromDTO(dto.getDados()), dto.getComentarios(), dto.getDataEHora()));
-		System.out.println(dto.getDataEHora());
-		System.out.println(atendimento.getDataEHora());
+	public ResponseEntity<ConsultaAtendimento> registrarAtendimento(@RequestBody AtendimentoDTO dto) {
+		Atendimento atendimento = atendimentoService
+				.registrar(new Atendimento(null, clienteService.buscarPorId(dto.getTutorId()),
+						cachorroService.buscarPorId(dto.getCachorroId()),
+						veterinarioService.buscarPorId(dto.getVeterinarioId()),
+						AtendimentoMapper.fromDTO(dto.getDados()), dto.getComentarios(), dto.getDataEHora()));
+
 		ConsultaAtendimento consultaAtendimento = AtendimentoMapper.fromEntity(atendimento);
-		System.out.println(consultaAtendimento.getDataEHora());
-		System.out.println(atendimentoService.buscarPorId(atendimento.getId()).getDataEHora());
 		return ResponseEntity.ok(consultaAtendimento);
 	}
-	
-	
+
 	@GetMapping
-	public ResponseEntity<List<ConsultaAtendimento>> listarAtendimentos(){
+	public ResponseEntity<List<ConsultaAtendimento>> listarAtendimentos() {
 		return ResponseEntity.ok(AtendimentoMapper.fromEntityList(atendimentoService.mostrarTodosOsAtendimnentos()));
 	}
 }
-

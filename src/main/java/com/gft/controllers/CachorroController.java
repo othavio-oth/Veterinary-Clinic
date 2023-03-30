@@ -21,52 +21,46 @@ import com.gft.entities.Cachorro;
 import com.gft.services.CachorroService;
 import com.gft.services.ClienteService;
 
-
-
 @RestController
 @RequestMapping("v1/pets")
 public class CachorroController {
-	
-	
+
 	@Autowired
 	private CachorroService cachorroService;
 	@Autowired
 	private ClienteService clienteService;
-	
+
 	@PostMapping
-	public ResponseEntity<ConsultaCachorro> salvarCachorro(@RequestBody CachorroDTO dto){
-		
+	public ResponseEntity<ConsultaCachorro> salvarCachorro(@RequestBody CachorroDTO dto) {
+
 		Cachorro cachorro = cachorroService.salvarCachorro(new Cachorro(null, dto.getNome(),
-				dto.getRaca(),dto.getCarteirinha(),
-				clienteService.buscarPorId(dto.getTutor())));
+				dto.getRaca(), dto.getCarteirinha(),
+				clienteService.buscarPorId(dto.getTutor()), dto.getStatus()));
 		return ResponseEntity.ok(CachorroMapper.fromEntity(cachorro));
 	}
-	
+
 	@GetMapping("{id}")
-	public ResponseEntity<ConsultaCachorro> buscarPorId(@RequestParam Long id){
+	public ResponseEntity<ConsultaCachorro> buscarPorId(@RequestParam Long id) {
 		return ResponseEntity.ok(CachorroMapper.fromEntity(cachorroService.buscarPorId(id)));
 	}
-	
-
 
 	@GetMapping
-	public ResponseEntity<List<ConsultaCachorro>> listarCachorros(){
+	public ResponseEntity<List<ConsultaCachorro>> listarCachorros() {
 		List<ConsultaCachorro> cachorros = CachorroMapper.fromEntityList(cachorroService.listarCachorros());
 		return ResponseEntity.ok(cachorros);
 	}
-	
+
 	@PutMapping("{id}")
-	public ResponseEntity<ConsultaCachorro> atualizarCachorro(@RequestBody CachorroDTO dto, @PathVariable Long id){
+	public ResponseEntity<ConsultaCachorro> atualizarCachorro(@RequestBody CachorroDTO dto, @PathVariable Long id) {
 		Cachorro cachorro = cachorroService.atualizarCachorro((new Cachorro(null, dto.getNome(),
-				dto.getRaca(),dto.getCarteirinha(),
-				clienteService.buscarPorId(dto.getTutor()))), id);
-		
+				dto.getRaca(), dto.getCarteirinha(),
+				clienteService.buscarPorId(dto.getTutor()), dto.getStatus())), id);
+
 		return ResponseEntity.ok(CachorroMapper.fromEntity(cachorro));
 	}
-	
-	
+
 	@DeleteMapping("{id}")
-	public ResponseEntity<ConsultaCachorro> deletarCachorro(Long id){
+	public ResponseEntity<ConsultaCachorro> deletarCachorro(Long id) {
 		cachorroService.deletarCachorro(id);
 		return ResponseEntity.ok().build();
 	}
